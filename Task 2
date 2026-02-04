@@ -1,0 +1,29 @@
+namespace ConsoleApp1.Tasks;
+
+class Task2
+{
+    static void Main(string[] args)
+    {
+        int[][] numberMatrix = new int[][]
+        {
+            new int[] { 2, 4, 6, 8, 10 },
+            new int[] { 1, 3, 5, 7, 9 }
+        };
+
+        Console.WriteLine("The number matrix has been initialized.");
+
+        // Digit 1: Row 1, Index 0 = 1
+        // Digit 2: Row 0, Index 1 = 4
+        // Digit 3: Row 0, Index 2 = 6
+        int passcode1 = numberMatrix[1][0];
+        int passcode2 = numberMatrix[0][1];
+        int passcode3 = numberMatrix[0][2];
+
+        string password = "";
+        password += passcode1;
+        password += passcode2;
+        password += passcode3;
+
+        Console.WriteLine("Final 3-digit key password is: " + password);
+    }
+}
