@@ -1,0 +1,87 @@
+using System;
+
+namespace ConsoleApp1.Tasks
+{
+    class Task4
+    {
+        // Methods
+        static double Add(double a, double b) => a + b;
+        static double Subtract(double a, double b) => a - b;
+        static double Multiply(double a, double b) => a * b;
+        static double Divide(double a, double b)
+        {
+            if (b == 0)
+            {
+                Console.WriteLine("Error: Cannot divide by zero.");
+                return double.NaN;
+            }
+            return a / b;
+        }
+
+        static void Main()
+        {
+            char choice = 'Y';
+
+            while (choice == 'Y' || choice == 'y')
+            {
+                Console.WriteLine("\nSelect operation:");
+                Console.WriteLine("1 - Addition");
+                Console.WriteLine("2 - Subtraction");
+                Console.WriteLine("3 - Multiplication");
+                Console.WriteLine("4 - Division");
+
+                Console.Write("Enter choice: ");
+                if (!int.TryParse(Console.ReadLine(), out int operation))
+                {
+                    Console.WriteLine("Invalid choice.");
+                    continue;
+                }
+
+                Console.Write("Enter Value 1: ");
+                if (!double.TryParse(Console.ReadLine(), out double value1))
+                {
+                    Console.WriteLine("Invalid input.");
+                    continue;
+                }
+
+                Console.Write("Enter Value 2: ");
+                if (!double.TryParse(Console.ReadLine(), out double value2))
+                {
+                    Console.WriteLine("Invalid input.");
+                    continue;
+                }
+
+                double result;
+                char op;
+
+                switch (operation)
+                {
+                    case 1:
+                        result = Add(value1, value2);
+                        op = '+';
+                        break;
+                    case 2:
+                        result = Subtract(value1, value2);
+                        op = '-';
+                        break;
+                    case 3:
+                        result = Multiply(value1, value2);
+                        op = '*';
+                        break;
+                    case 4:
+                        result = Divide(value1, value2);
+                        op = '/';
+                        break;
+                    default:
+                        Console.WriteLine("Invalid operation.");
+                        continue;
+                }
+
+                Console.WriteLine($"{value1} {op} {value2} = {result}");
+
+                Console.Write("\nDo you want to continue? (Y/N): ");
+                choice = Console.ReadLine()![0];
+            }
+        }
+    }
+}
