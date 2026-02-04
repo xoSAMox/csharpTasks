@@ -1,0 +1,44 @@
+using System;
+
+namespace ConsoleApp1.Tasks
+{
+    class Task6
+    {
+        // Properties
+        public string Name { get; set; } = "";
+        public int Age { get; set; }
+        public double Grade { get; set; }
+
+        // Method to display student info
+        public void DisplayInfo()
+        {
+            Console.WriteLine("Student Name: " + Name);
+            Console.WriteLine("Age: " + Age);
+            Console.WriteLine("Grade: " + Grade);
+        }
+
+        // Method to check if student passed
+        public bool IsPassed()
+        {
+            return Grade >= 75;
+        }
+
+        static void Main()
+        {
+            // Create an instance of Task6
+            Task6 student = new Task6();
+
+            // Assign sample values
+            student.Name = "Sam";
+            student.Age = 20;
+            student.Grade = 86.5;
+
+            // Call methods
+            student.DisplayInfo();
+
+            Console.WriteLine(
+                student.IsPassed() ? "Status: Passed" : "Status: Failed"
+            );
+        }
+    }
+}
